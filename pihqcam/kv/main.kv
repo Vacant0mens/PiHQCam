@@ -21,9 +21,9 @@
             size_hint: 1.0, 0.95
             id: panels
             do_default_tab: False
-            tab_pos: 'top_left'
-            tab_height: 90
-            tab_width: 240
+            tab_pos: 'top_mid'
+            tab_height: (self.parent.height / 20)
+            tab_width: (self.parent.width / 3)
             myroot: root
             TabbedPanelItem:
                 id: panel_cam
@@ -275,11 +275,10 @@
                                 orientation: 'vertical'
                                 MemoryImage:
                                     id: cameraimage
-                                    size: (640, 480)
-                                    size_hint: 1.0, 0.9
+                                    size_hint: 1.0, 0.925
                                 BoxLayout:
                                     orientation: 'horizontal'
-                                    size_hint: 1.0, 0.1
+                                    size_hint: 1.0, 0.075
                                     ToggleButton:
                                         text: 'Camera'
                                         group: 'cammode'
