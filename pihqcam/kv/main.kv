@@ -1,15 +1,15 @@
-#:kivy 1.11.0
 #:import LabelClock pihqcam.uix.tools.labelclock
 #:import HandledPiCamPanels pihqcam.uix.panels.campanels
 #:import PiCameraEffectGridLayout pihqcam.uix.layout.cameraeffect
 #:import MemoryImage pihqcam.uix.image.memoryimage
 #:import PiCameraFileBrowser pihqcam.uix.layout.camerabrowser
+#:kivy 2.3.0
 
 <MainScreen>:
     GridLayout:
         cols:1
         rows:2
-        orientation: 'vertical'
+        orientation: 'lr-tb'
         GridLayout:
             size_hint: 1.0, 0.05
             cols:3
@@ -42,7 +42,7 @@
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -50,14 +50,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Black & White'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -65,14 +65,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Sepia'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -80,14 +80,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Cartoon'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -95,14 +95,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'ColorBalance'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -110,14 +110,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'ColorSwap'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -125,14 +125,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'DeNoise'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -140,14 +140,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Emboss'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -155,14 +155,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Film'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -170,14 +170,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'GPen'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -185,14 +185,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Hatch'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -200,14 +200,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Pastel'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -215,14 +215,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Posterise'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -230,14 +230,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'Sketch'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -245,14 +245,14 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
                             ToggleButton:
                                 text: 'WashedOut'
                                 group: 'cameffect'
                                 text_size: self.size
                                 halign: 'center'
                                 valign: 'bottom'
-                                padding_y: 10
+                                padding: [0, 10, 0, 10]
                                 on_press: cameraeffect.update_camera_effect(self.text)
                                 allow_no_selection: False
                                 Image:
@@ -260,7 +260,7 @@
                                     center_x: self.parent.center_x
                                     center_y: self.parent.center_y + 10
                                     size: 64, 64
-                                    allow_stretch: True
+                                    fit_mode: "contain"
 
                     AccordionItem:
                         title: "Viewer"
