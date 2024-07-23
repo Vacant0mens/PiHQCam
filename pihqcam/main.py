@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import kivy
-kivy.require('1.11.1') 
+kivy.require('2.3.0') 
 
 from kivy.config import Config
 from kivy.lang import Builder
