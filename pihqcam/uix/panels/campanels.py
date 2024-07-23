@@ -3,11 +3,11 @@ from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.properties import ConfigParserProperty
 from kivy.uix.scrollview import ScrollView
 
-from pihqcam.device.trackballhelper import TrackballHelper
 from pihqcam.uix.image.imagehelper import ImageHelper
 from pihqcam.uix.layout.cameraview import HandledPiCameraView
+# from device.trackballhelper import TrackballHelper
 
-import sys
+from sys import exc_info
 
 class HandledPiCamPanels(TabbedPanel):
 
@@ -15,16 +15,23 @@ class HandledPiCamPanels(TabbedPanel):
     BROWSER_TAB = 1
     INFO_TAB = 0
 
+    trackball_status = ConfigParserProperty('Disabled', 'HQCam', 'trackball', 'app')
     duration = ConfigParserProperty('5', 'HQCam', 'timers_duration', 'app')
+
+    if trackball_status == 'Enabled':
+        TrackballHelper = __import__('device.trackballhelper.TrackballHelper')
+    else:
+        TrackballHelper = None
 
     def __init__(self, **kwargs):
         super(HandledPiCamPanels, self).__init__(**kwargs)
         # Define Trackball call
-        self.trackball = TrackballHelper()
-        self.trackball.setup()
-        self.trackball.clear_trackball()
-        self.trackball.start(self.on_read_trackball)
-        self.myroot = None # Injected from KV TODO Change
+        if self.trackball_status == 'Enabled':
+            self.trackball = self.TrackballHelper()
+            self.trackball.setup()
+            self.trackball.clear_trackball()
+            self.trackball.start(self.on_read_trackball)
+            self.myroot = None # Injected from KV TODO Change
 
     def on_read_trackball(self, trackball_value):
         tb_group = self.tab_list
@@ -34,11 +41,11 @@ class HandledPiCamPanels(TabbedPanel):
             new_pos = position
             max = len(tb_group) - 1
 
-            if TrackballHelper.NOTIFY_LEFT == trackball_value:
+            if self.TrackballHelper.NOTIFY_LEFT == trackball_value:
                 new_pos = position + 1
                 if new_pos > max:
                     new_pos = max
-            elif TrackballHelper.NOTIFY_RIGHT == trackball_value:
+            elif self.TrackballHelper.NOTIFY_RIGHT == trackball_value:
                 new_pos = position - 1
                 if new_pos < 0:
                     new_pos = 0
@@ -60,7 +67,7 @@ class HandledPiCamPanels(TabbedPanel):
                             Logger.info("Updating viewer source to {}".format(filepreviewer.source))
                     Logger.info("Done with Browser")
                             
-            elif TrackballHelper.NOTIFY_CLICK == trackball_value:
+            elif self.TrackballHelper.NOTIFY_CLICK == trackball_value:
                 if position==HandledPiCamPanels.LIVE_TAB:
                     try:
                         cameraview = self.myroot.ids["cameraview"]
@@ -79,7 +86,7 @@ class HandledPiCamPanels(TabbedPanel):
                         Logger.error("===== AttributeError")
                         Logger.error(ae)
                     except:
-                        Logger.error("HandledPiCamPanels: on_read_trackball: {}".format(sys.exc_info()[0]))
+                        Logger.error("HandledPiCamPanels: on_read_trackball: {}".format(exc_info()[0]))
             else:
                 if position==HandledPiCamPanels.BROWSER_TAB: # Browser
                     filechooser = self.myroot.ids["filechooser"]
@@ -97,9 +104,9 @@ class HandledPiCamPanels(TabbedPanel):
                     if cur in sfiles:
                         idx=sfiles.index(cur)
                         orig = idx
-                        if TrackballHelper.NOTIFY_UP == trackball_value:
+                        if self.TrackballHelper.NOTIFY_UP == trackball_value:
                             offset = -1
-                        elif TrackballHelper.NOTIFY_DOWN == trackball_value:
+                        elif self.TrackballHelper.NOTIFY_DOWN == trackball_value:
                             offset = 1
                         idx+=offset
                         if idx>=fcount:

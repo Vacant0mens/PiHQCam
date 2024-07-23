@@ -35,5 +35,13 @@
         "section": "HQCam",
         "key": "video_res",
         "options": ["640x480p40", "640x480p60", "640×480p90", "720p60", "1080p30"]
+    },
+    {
+        "type": "options",
+        "title": "Trackball Enable/Disable",
+        "desc": "Enable/Disable trackball control.",
+        "section": "HQCam",
+        "key": "trackball",
+        "options": ["Enabled", "Disabled"]
     }
 ]

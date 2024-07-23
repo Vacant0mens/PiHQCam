@@ -22,7 +22,7 @@ class HandledPiCamApp(App):
         """
         Set the default values for the configs sections.
         """
-        config.setdefaults(HandledPiCamApp.SECTION_NAME, {'picture_folder': './DCIM', 'thumb_folder': '/tmp/', 'picture_res': '640x480', 'timers_duration':10})
+        config.setdefaults(HandledPiCamApp.SECTION_NAME, {'picture_folder': './DCIM', 'thumb_folder': '/tmp/', 'picture_res': '640x480', 'timers_duration':10, 'trackball': 'Enabled'})
 
     def build_settings(self, settings):
         """
