@@ -3,9 +3,9 @@ from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.properties import ConfigParserProperty
 from kivy.uix.scrollview import ScrollView
 
-from pihqcam.uix.image.imagehelper import ImageHelper
-from pihqcam.uix.layout.cameraview import HandledPiCameraView
 # from device.trackballhelper import TrackballHelper
+from uix.image.imagehelper import ImageHelper
+from uix.layout.cameraview import HandledPiCameraView
 
 from sys import exc_info
 

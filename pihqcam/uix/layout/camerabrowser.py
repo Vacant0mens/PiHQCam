@@ -2,7 +2,7 @@
 from kivy.logger import Logger
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ConfigParserProperty
-from pihqcam.uix.image.imagehelper import ImageHelper
+from uix.image.imagehelper import ImageHelper
 import os
 import sys
 import PIL

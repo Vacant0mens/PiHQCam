@@ -7,8 +7,13 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
 
 # import os
+from pathlib import Path
 # from os.path import sep, join, dirname
-# import sys
+import sys
+this_path = Path(__file__).parent
+this_dir = this_path.parent.absolute()
+sys.path.append(this_dir)
+
 
 # from kivy.app import App
 # from kivy.clock import Clock
@@ -42,12 +47,13 @@ screen_manager = ScreenManager(transition=FadeTransition())
 
 # import pihqcam.device.CameraHelper
 # import pihqcam.uix.image.MemoryImage
+import app, device, kv, resources, uix
 
-import pihqcam.uix.screen.quit as quit_screen
-import pihqcam.uix.screen.shutdown as shutdown_screen
-import pihqcam.uix.screen.main as main_screen
-import pihqcam.uix.screen.splash as splash_screen
-import pihqcam.app.picam as app_cam
+import uix.screen.quit as quit_screen
+import uix.screen.shutdown as shutdown_screen
+import uix.screen.main as main_screen
+import uix.screen.splash as splash_screen
+import app.picam as app_cam
 
 # # --------- Refacto - END
 

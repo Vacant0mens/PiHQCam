@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from kivy.uix.gridlayout import GridLayout
-from pihqcam.device.camerahelper import CameraHelper
+from device.camerahelper import CameraHelper
 
 class PiCameraEffectGridLayout(GridLayout):
     def __init__(self, **kwargs):
